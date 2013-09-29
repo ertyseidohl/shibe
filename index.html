@@ -55,16 +55,24 @@
 		};
 		var getPhrases = function(){
 			var phrases = document.getElementById('phrases').value.split("\n");
+			var i = phrases.length;
+			for(var k = 0; k < i; k++){
+				while(phrases[k][0] === '*'){
+					phrases.push(phrases[k].replace(/\*/g, ''));
+					phrases[k] = phrases[k].substring(1);
+				}
+			}
 			phrases = phrases.map(function(a){return a.trim().toLowerCase()});
 			phrases = phrases.filter(function(a){return a.length > 2});
+			console.log(phrases);
 			return phrases;
 		};
 		var getRandomPhrase = function(words, phrases){
 			var chosenPhrase = phrases[parseInt(Math.random() * phrases.length)];
-			chosenPhrase.replace(/\[(.*)\]/g, function(match){
-				match = match.trim("[]");
+			chosenPhrase = chosenPhrase.replace(/\[(.*)\]/g, function(match){
+				match = match.replace(/[\[\]]/g, '').toUpperCase();
 				if(words[match]){
-					var tagwords = Array.keys(words[match]);
+					var tagwords = Object.keys(words[match]);
 					return tagwords[parseInt(Math.random() * tagwords.length)];
 				} else{
 					return match;
@@ -127,14 +135,69 @@
 	<p><label for="blankchance">blank line chance: </label><input id="blankchance" type="number" value="0.75" min="0" max="1" step="0.05"/></p>
 	</div>
 	</div>
-	<div><p>Phrases to use (one per line):</p><textarea id="phrases" cols="30" rows="10"></textarea></div>
+	<div><p>Phrases to use</p>
+	<ul>
+		<li>One Per Line</li>
+		<li>Parts of speech in brackets
+			<ul>
+				<li>i.e. [NN] = noun, [JJ] = adjective</li>
+				<li><a style="color:blue;text-decoration:underline;cursor:pointer" onclick="var t=document.getElementById('taglist');if(t.style.display=='block'){t.style.display='none';}else{t.style.display='block';}">Show/Hide parts-of-speech List</a></li>
+			</ul>
+		</li>
+		<li>The more *s before a line, the more likely that phrase is to show up.</li>
+	</ul>
+	</p><textarea id="phrases" cols="30" rows="10"></textarea></div>
 	<script type="text/javascript">
-		document.getElementById("phrases").value += "so [NN]\n";
-		document.getElementById("phrases").value += "so much [NN]\n";
-		document.getElementById("phrases").value += "very [JJ]\n";
-		document.getElementById("phrases").value += "such [JJ]\n";
-		document.getElementById("phrases").value += "much [JJ]\n";
+		document.getElementById("phrases").value += "**such [NN]\n";
+		document.getElementById("phrases").value += "*so much [NN]\n";
+		document.getElementById("phrases").value += "*very [JJ]\n";
+		document.getElementById("phrases").value += "*so [JJ]\n";
+		document.getElementById("phrases").value += "*much [JJ]\n";
+		document.getElementById("phrases").value += "r u troleing me?\n";
+		document.getElementById("phrases").value += "good doge\n";
+		document.getElementById("phrases").value += "dogge\n";
 	</script>
+	<div id="taglist" style="display:none">
+		<pre>
+CC Coord Conjuncn           and,but,or
+CD Cardinal number          one,two
+DT Determiner               the,some
+EX Existential there        there
+FW Foreign Word             mon dieu
+IN Preposition              of,in,by
+JJ Adjective                big
+JJR Adj., comparative       bigger
+JJS Adj., superlative       biggest
+LS List item marker         1,One
+MD Modal                    can,should
+NN Noun, sing. or mass      dog
+NNP Proper noun, sing.      Edinburgh
+NNPS Proper noun, plural    Smiths
+NNS Noun, plural            dogs
+POS Possessive ending       's
+PDT Predeterminer           all, both
+PP$ Possessive pronoun      my,one's
+PRP Personal pronoun        I,you,she
+PRP$ Pers. Pos. pronoun     My,His,Hers
+RB Adverb                   quickly
+RBR Adverb, comparative     faster
+RBS Adverb, superlative     fastest
+RP Particle                 up,off
+SYM Symbol                  +,%,&amp;
+TO 'to'                     to
+UH Interjection             oh, oops
+VB verb, base form          eat
+VBD verb, past tense        ate
+VBG verb, gerund            eating
+VBN verb, past part         eaten
+VBP Verb, present           eat
+VBZ Verb, present           eats
+WDT Wh-determiner           which,that
+WP Wh pronoun               who,what
+WP$ Possessive-Wh           whose
+WRB Wh-adverb               how,where
+</pre>
+	</div>
 	<div><input type="button" onclick="createShibe(sortWords(lexWords()), getPhrases());" value="Generate"></button></div>
 	<div><p>Output:</p><textarea id="output" rows="20" cols="80"></textarea></div>
 	<div>Created by <a href="./erty.me">Erty Seidel</a>.</div>
