@@ -1,3 +1,5 @@
+/* NON SHIBE MODE */
+
 input    {
 width:375px;
 display:block;
@@ -54,4 +56,52 @@ color:#09C;
 
 textarea:focus, input:focus {
 border: 1px solid #09C;
+}
+
+.wow{
+	display: none;
+}
+
+/* SHIBE MODE */
+#shibe.shibemode{
+	background-image: url(./img/shibe.jpg);
+	background-repeat: repeat-x repeat-y;
+}
+
+.shibemode .wow{
+	display: block;
+}
+
+.shibemode div{
+	font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.shibemode p:nth-child(1), .shibemode li:nth-child(1){
+	color: blue;
+	padding-left: 2em;
+}
+
+.shibemode p:nth-child(2), .shibemode li:nth-child(2){
+	color: red;
+	padding-left: 6em;
+}
+
+.shibemode p:nth-child(3), .shibemode li:nth-child(3){
+	color: yellow;
+	padding-left: 10em;
+}
+
+.shibemode p:nth-child(4), .shibemode li:nth-child(4){
+	color: green;
+	padding-left: 1em;
+}
+
+.shibemode p:nth-child(5), .shibemode li:nth-child(5){
+	color: #ff00ff;
+	padding-left: 5em;
+}
+
+.shibemode p{
+	margin: 0;
+	padding: 1em 0;
 }

@@ -55,7 +55,6 @@ var getPhrases = function(){
 	}
 	phrases = phrases.map(function(a){return a.trim().toLowerCase()});
 	phrases = phrases.filter(function(a){return a.length > 2});
-	console.log(phrases);
 	return phrases;
 };
 var getRandomPhrase = function(words, phrases){

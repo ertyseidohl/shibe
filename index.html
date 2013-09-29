@@ -7,27 +7,44 @@
 	<script src="./lexer/lexer.js"></script>
 	<script src="./lexer/lexicon.js_"></script>
 	<script src="./lexer/POSTagger.js"></script>
-	<script src="./shibe.js"></script>
+
+	<link rel="stylesheet" href="onoff.css">
+
 </head>
 <body>
+	<div class="wow" style="padding-left: 10em">wow</div>
 	<div id="shibe">
 		<a href="https://github.com/ertyseidel/shibe"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
 		<div>
 			<h2>Shibe Generator</h2>
+			<div class="wow" style="padding-left: 20em">wow</div>
+			<div class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch">
+				<label class="onoffswitch-label" for="myonoffswitch">
+					<div class="onoffswitch-inner"></div>
+					<div class="onoffswitch-switch"></div>
+				</label>
+			</div>
+			<div class="wow" style="padding-left: 7em">wow</div><div class="wow" style="padding-left: 10em">wow</div>
 			<p>"Translates" a text into shibe. Paste a large text into the "input" box, hit "generate", and enjoy your own personal shibe. Works better with larger texts (Shakespeare, anyone?).</p>
 		</div>
 		<div>
 			<p>Thanks very much to the LGPL'd <a href="https://code.google.com/p/jspos/">jspos library</a>, itself a js port of <a href="http://www.markwatson.com/opensource/">Mark Watson's FastTag</a>, which handles all of the heavy lifting of this program.</p>
 		</div>
+		<div class="wow" style="padding-left: 12em">wow</div>
 		<div>
-			<p>Input text (paste something good here):</p><textarea id="input" cols="80" rows="10"></textarea>
+			<p>Input text: (Try <a id="shakespeare">Romeo and Juliet</a>)</p><textarea id="input" cols="80" rows="10"></textarea>
 		</div>
+		<div class="wow" style="padding-left: 6em">good doge</div>
+		<div class="wow" style="padding-left: 15em">wow</div>
 		<div>
 			<p>Settings:</p>
 			<p><label for="wow">"wow" density: </label><input id="wow" type="number" value="0.05" min="0" max="1" step="0.05"/></p>
 			<p><label for="phrasedensity">phrase density: </label><input id="phrasedensity" type="number" value="0.2" min="0" max="1" step="0.05"</></p>
 			<p><label for="blankchance">blank line chance: </label><input id="blankchance" type="number" value="0.75" min="0" max="1" step="0.05"/></p>
 		</div>
+		<div class="wow" style="padding-left: 10em">wow</div>
+		<div class="wow" style="padding-left: 20em">wow</div>
 		<div>
 			<p>Phrases to use</p>
 			<ul>
@@ -38,11 +55,13 @@
 						<li><a style="color:blue;text-decoration:underline;cursor:pointer" onclick="var t=document.getElementById('taglist');if(t.style.display=='block'){t.style.display='none';}else{t.style.display='block';}">Show/Hide parts-of-speech List</a></li>
 					</ul>
 				</li>
+				<div class="wow" style="padding-left: 15em">trole</div>
 				<li>The more *s before a line, the more likely that phrase is to show up.</li>
 				<li>"wow"s are added automatically, controlled by the "wow density" input above.</li>
 			</ul>
 			</p><textarea id="phrases" cols="30" rows="10"></textarea>
 		</div>
+		<div class="wow" style="padding-left: 30em">wow</div>
 		<script type="text/javascript">
 			document.getElementById("phrases").value += "**such [NN]\n";
 			document.getElementById("phrases").value += "*so much [NN]\n";
@@ -93,6 +112,7 @@
 	WP$ Possessive-Wh           whose
 	WRB Wh-adverb               how,where
 	</pre>
+	<div class="wow" style="padding-left: 10em">such verb</div>
 		</div>
 		<div>
 			<input class="button" type="button" onclick="createShibe(sortWords(lexWords()), getPhrases());" value="Generate"></button>
@@ -104,6 +124,7 @@
 			<textarea id="output" rows="20" cols="80"></textarea></div>
 		<div>
 			<p><a href="./contact">Feedback / Contact</a></p>
+			<div class="wow" style="padding-left: 10em">such web</div>
 			<p>Created by <a href="http://erty.me">Erty Seidel</a>.</p>
 		</div>
 		<script>
@@ -117,6 +138,8 @@
 
 		</script>
 	</div>
+	<script src="./helper.js"></script>
+	<script src="./shibe.js"></script>
 </body>
 </html>
 
