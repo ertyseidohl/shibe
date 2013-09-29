@@ -125,6 +125,7 @@
 	<div id="shibe">
 		<div>
 			<h2>Shibe Generator</h2>
+			<p>"Translates" a text into shibe. Paste a large text into the "input" box, hit "generate", and enjoy your own personal shibe. Works better with larger texts (Shakespeare, anyone?).</p>
 		</div>
 		<div>
 			<p>Thanks very much to the LGPL'd <a href="https://code.google.com/p/jspos/">jspos library</a>, itself a js port of <a href="http://www.markwatson.com/opensource/">Mark Watson's FastTag</a>, which handles all of the heavy lifting of this program.</p>
@@ -149,6 +150,7 @@
 					</ul>
 				</li>
 				<li>The more *s before a line, the more likely that phrase is to show up.</li>
+				<li>"wow"s are added automatically, controlled by the "wow density" input above.</li>
 			</ul>
 			</p><textarea id="phrases" cols="30" rows="10"></textarea>
 		</div>
@@ -209,19 +211,20 @@
 		<div>
 			<p>Output:</p>
 			<p>If your output contains a lot of "undefined", you probably don't have any of that part of speech in your input text.</p>
+			<p>Hit "generate" until you get a shibe text you like!</p>
 			<textarea id="output" rows="20" cols="80"></textarea></div>
 		<div>
 			<p>Created by <a href="./erty.me">Erty Seidel</a>.</p>
 		</div>
 		<script>
-			/*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 			})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 			ga('create', 'UA-783271-7', 'erty.me');
 			ga('send', 'pageview');
-			*/
+
 		</script>
 	</div>
 </body>
