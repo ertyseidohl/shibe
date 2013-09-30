@@ -30,7 +30,6 @@ var sortWords = function(taggedWords){
 		wordList[tags[t]] = {};
 	}
 	var blacklist = getBlacklist();
-	console.log(blacklist);
 	for (var i in taggedWords) {
 		var taggedWord = taggedWords[i];
 		var word = taggedWord[0].toLowerCase();
