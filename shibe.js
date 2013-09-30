@@ -29,12 +29,14 @@ var sortWords = function(taggedWords){
 	for(var t in tags){
 		wordList[tags[t]] = {};
 	}
+	var blacklist = getBlacklist();
+	console.log(blacklist);
 	for (var i in taggedWords) {
 		var taggedWord = taggedWords[i];
 		var word = taggedWord[0].toLowerCase();
 		var tag = taggedWord[1];
 		word = word.replace(/[^A-Za-z]/g, '');
-		if(word.length > 2 && word.indexOf("'") === -1){
+		if(word.length > 2 && word.indexOf("'") === -1 && blacklist.indexOf(word) === -1){
 			if(wordList[tag][word]){
 				wordList[tag][word] += 1;
 			} else{
@@ -56,6 +58,11 @@ var getPhrases = function(){
 	phrases = phrases.map(function(a){return a.trim().toLowerCase()});
 	phrases = phrases.filter(function(a){return a.length > 2});
 	return phrases;
+};
+var getBlacklist = function(){
+	var blacklist = document.getElementById('blacklist').value.split(",");
+	blacklist = blacklist.map(function(a){return a.trim().toLowerCase()});
+	return blacklist;
 };
 var getRandomPhrase = function(words, phrases){
 	var chosenPhrase = phrases[parseInt(Math.random() * phrases.length)];
