@@ -58,11 +58,26 @@ textarea:focus, input:focus {
 border: 1px solid #09C;
 }
 
+#github{
+	position: absolute;
+	top: 0;
+	right: 0;
+	border: 0;
+	width: 149px;
+	height: 149px;
+	background-image:url(./img/forkme_boring.png);
+}
+
 .wow{
 	display: none;
 }
 
 /* SHIBE MODE */
+
+.shibemode div#github{
+	background-image:url(./img/forkme_shibe.png);
+}
+
 #shibe.shibemode{
 	background-image: url(./img/shibe.jpg);
 	background-repeat: repeat-x repeat-y;
